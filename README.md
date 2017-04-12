@@ -1,8 +1,4 @@
-## Using `create-react-app` with React Router + Express.js
-
-See : https://medium.com/@patriciolpezjuri/using-create-react-app-with-react-router-express-js-8fa658bf892d
-
-## Development
+## Steps
 
 Clone this repository:
 
