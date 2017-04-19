@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router';
-import Navbar from './navbar';
+import { Link } from 'react-router-dom';
 
 class Posts extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      loading: true
     }
   }
 
@@ -16,7 +16,7 @@ class Posts extends Component {
     var self = this;
     axios.get('https://jsonplaceholder.typicode.com/posts?userId=1')
           .then(function (response) {
-            self.setState({posts:response.data});
+            self.setState({posts:response.data, loading: false});
           })
           .catch(function (error) {
             console.log(error)
@@ -24,14 +24,7 @@ class Posts extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Navbar />,
-        <br/>
-        <div className="container">
-          <div className="row">
-              {
-                 this.state.posts.map((post) => {
+    let content = this.state.loading ? <div className="col-sm-12">Loading...</div> : this.state.posts.map((post) => {
                     return (
                       <div className="col-md-4" key={post.id}>
                         <h2>{post.title}</h2>
@@ -39,11 +32,12 @@ class Posts extends Component {
                         <Link key={post.id} to={`/posts/${post.id}`} className="btn btn-primary"> Read More >> </Link>
                       </div>
                     )
-                 })
-              }
-            </div>
+                 });
+
+    return (
+        <div className="row">
+            {content}
         </div>
-      </div>
       );
   }
 }

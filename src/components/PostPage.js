@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router';
-import Navbar from './navbar';
 
 class PostPage extends Component {
 
@@ -15,7 +13,7 @@ class PostPage extends Component {
 
   componentDidMount() {
     var self = this;
-    const id = this.props.params.id;
+    const id = this.props.match.params.id;
     axios.get('https://jsonplaceholder.typicode.com/posts/'+id)
           .then(function (response) {
             self.setState({post:response.data});
@@ -37,9 +35,6 @@ class PostPage extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <br/>
-        <div className="container">
         <div className="jumbotron">
             <div className="col-sm-8 mx-auto">
               <h1>{this.state.post.title}</h1>
@@ -50,17 +45,16 @@ class PostPage extends Component {
           <div className="col-md-12">
             <h2>Comments</h2>
           </div>
-        {
-           this.state.comments.map((comment) => {
-              return (
-                <div className="col-md-12" key={comment.id}>
-                  <strong>Email: {comment.email}</strong>
-                  <p>Comment: {comment.body}</p>
-                </div>
-              )
-           })
-        }
-        </div>
+          {
+             this.state.comments.map((comment) => {
+                return (
+                  <div className="col-md-12" key={comment.id}>
+                    <strong>Email: {comment.email}</strong>
+                    <p>Comment: {comment.body}</p>
+                  </div>
+                )
+             })
+          }
         </div>
       </div>
       );
@@ -68,4 +62,3 @@ class PostPage extends Component {
 }
 
 export default PostPage
-
