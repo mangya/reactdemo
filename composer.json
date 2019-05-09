@@ -10,10 +10,5 @@
             "email": "mangesh.ghadigaonkar@gmail.com",
             "role": "Developer"
         }
-    ],
-    "scripts": {
-        "post-create-project-cmd": [
-            "@npm install"
-        ]
-    }
+    ]
 }
