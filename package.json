@@ -9,7 +9,7 @@
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "react-scripts": "2.1.0"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
