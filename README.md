@@ -3,7 +3,7 @@
 * Understand the concept [Introduction to ReactJS](https://www.youtube.com/watch?v=ycstRj2i66k)
 * Understand the code and syntax [React Tutorial for Beginners](https://www.youtube.com/watch?v=ZnRFerIP8aA)
 ### References
-* Reference for react components [React Components](https://devarchy.com/react)
+* Reference for react components [React Components](https://technostacks.com/blog/react-component-libraries)
 ### Steps to run 
 Clone this repository:
 
